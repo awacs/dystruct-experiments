@@ -1,18 +1,15 @@
 This folder contains scripts to rerun the analysis on the data from Haak et al.
 (2015)'s "Massive migration from the steppe was a source for Indo-European
 languages in Europe." Preprocessed data to provide as input to DyStruct and
-ADMIXTURE are available in the compressed archive data.tar.gz.  The analyses
-can be rerun with the following scripts:
+ADMIXTURE are available in the compressed archive data.tar.gz.
 
-./run-dystruct-haak2015massive.sh PATH-TO-DYSTRUCT
-./run-admixture-haak2015massive.sh PATH-TO-ADMIXTURE
+Scripts to run DyStruct and ADMIXTURE for each K are in the folders
 
-The following files are output:
-- haak2015massive-ancient-europe-K3_theta : DyStruct's ancestry estimates for the West Eurasian dataset
-- haak2015massive-ancient-europe-K3_freqs : DyStruct's allele frequency estimates for the West Eurasian dataset
-- haak2015massive-ancient-oceania-K3_theta : DyStruct's ancestry estimates for the Oceanian dataset
-- haak2015massive-ancient-oceania-K3_freqs : DyStruct's allele frequency estimates for the Oceanian dataset
-- haak2015massive-ancient-europe.3.Q : ADMIXTURE's ancestry estimates for the West Eurasian dataset
-- haak2015massive-ancient-europe.3.P : ADMIXTURE's allele frequency estimates for the West Eurasian dataset
-- haak2015massive-ancient-oceania.3.Q : ADMIXTURE's ancestry estimates on the Oceanian dataset
-- haak2015massive-ancient-oceania.3.Q : ADMIXTURE's allele frequency estimates for the Oceanian dataset
+```
+K#/run-haak2015massive-europe-K#.sh
+K#/run-haak2015massive-oceania-K#.sh
+K#-admixture/run-admix-haak2015massive-europe-K#.sh
+K#-admixture/run-admix-haak2015massive-oceania-K#.sh
+```
+
+You will likely need to change the path to the programs DyStruct and ADMIXTURE in each script.
