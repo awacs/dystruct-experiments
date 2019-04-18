@@ -88,7 +88,7 @@ def simulate_scenario_b(nloci):
 if __name__ == "__main__":
     np.random.seed(25708)
     for i in range(1,11):
-        genotypes, sample_times = simulate_scenario_b(5000)
+        genotypes, sample_times = simulate_scenario_b(10000)
         np.savetxt("scenario_b_genotypes_" + str(i), genotypes, fmt="%i", delimiter='')
         np.savetxt("scenario_b_times_" + str(i), sample_times, fmt="%i", delimiter="\n")
     

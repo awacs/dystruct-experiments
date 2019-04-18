@@ -1,7 +1,8 @@
 import msprime
 import numpy as np
+from sys import argv
 
-def simulate_scenario_a(nloci):
+def simulate_scenario_a(nloci, mixture_prop):
     """Simulate haploid individuals under historical admixture.
     Three populations merge 200 generations ago. Ancient samples are
     from three populations prior to mixture. Modern samples are from
@@ -28,7 +29,7 @@ def simulate_scenario_a(nloci):
     demographic_events = [
 
         # Admixture event at time_merge
-        msprime.MassMigration(time=time_merge, source=0, destination=1, proportion=0.25),
+        msprime.MassMigration(time=time_merge, source=0, destination=1, proportion=mixture_prop),
 
         # Size change
         msprime.PopulationParametersChange(time=time_merge, initial_size=ancestral_Ne, population_id=0),
@@ -98,8 +99,9 @@ def simulate_scenario_a(nloci):
 
 if __name__ == "__main__":
     np.random.seed(21996)
+    mixture_prop = float(argv[1])
     for i in range(1,11):
-        genotypes, sample_times = simulate_scenario_a(5000)
-        np.savetxt("scenario_a_genotypes_" + str(i), genotypes, fmt="%i", delimiter='')
-        np.savetxt("scenario_a_times_" + str(i), sample_times, fmt="%i", delimiter="\n")
+        genotypes, sample_times = simulate_scenario_a(10000, mixture_prop)
+        np.savetxt("scenario_a_genotypes_" + str(mixture_prop) + "_" + str(i), genotypes, fmt="%i", delimiter='')
+        np.savetxt("scenario_a_times_" + str(mixture_prop) + "_" + str(i), sample_times, fmt="%i", delimiter="\n")
     
